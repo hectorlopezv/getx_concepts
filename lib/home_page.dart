@@ -9,7 +9,7 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final tapController = Get.put(TapController());
+    final tapController = Get.find<TapController>();
     return Scaffold(
       appBar: AppBar(
         title: const Text('Home Page'),
