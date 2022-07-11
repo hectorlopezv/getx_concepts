@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getx_concepts/controllers/tap_controller.dart';
+import 'package:getx_concepts/third_page.dart';
 
-class FirstPage extends StatelessWidget {
-  const FirstPage({Key? key}) : super(key: key);
+class SecondPage extends StatelessWidget {
+  const SecondPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -58,7 +59,7 @@ class FirstPage extends StatelessWidget {
           ),
           GestureDetector(
             onTap: () {
-              controller.decreaseX();
+              Get.to(() => ThirdPage());
             },
             child: Container(
               margin: EdgeInsets.all(20),
@@ -70,7 +71,7 @@ class FirstPage extends StatelessWidget {
               ),
               child: Center(
                 child: Text(
-                  "Decrease Tap",
+                  "Go To Third Page",
                   style: TextStyle(
                     fontSize: 20,
                     color: Colors.white,

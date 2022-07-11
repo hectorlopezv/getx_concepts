@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getx_concepts/controllers/tap_controller.dart';
+import 'package:getx_concepts/home_page.dart';
 
-class FirstPage extends StatelessWidget {
-  const FirstPage({Key? key}) : super(key: key);
+class ThirdPage extends StatelessWidget {
+  const ThirdPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -33,16 +34,14 @@ class FirstPage extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    GetBuilder<TapController>(
-                      builder: (tapController) {
-                        return Text(
-                          '${tapController.x.toString()}',
-                          style: TextStyle(
-                            fontSize: 30,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        );
-                      },
+                    Obx(
+                      () => Text(
+                        "${controller.y.toString()}",
+                        style: TextStyle(
+                          fontSize: 30,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                     ),
                     Text(
                       "Tap",
@@ -58,7 +57,7 @@ class FirstPage extends StatelessWidget {
           ),
           GestureDetector(
             onTap: () {
-              controller.decreaseX();
+              controller.increaseY();
             },
             child: Container(
               margin: EdgeInsets.all(20),
@@ -70,7 +69,30 @@ class FirstPage extends StatelessWidget {
               ),
               child: Center(
                 child: Text(
-                  "Decrease Tap",
+                  "Increase Y",
+                  style: TextStyle(
+                    fontSize: 20,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+            ),
+          ),
+          GestureDetector(
+            onTap: () {
+              Get.to(() => HomePage());
+            },
+            child: Container(
+              margin: EdgeInsets.all(20),
+              width: double.maxFinite,
+              height: 100,
+              decoration: BoxDecoration(
+                color: Color(0xFF89dad0),
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: Center(
+                child: Text(
+                  "Go to Home",
                   style: TextStyle(
                     fontSize: 20,
                     color: Colors.white,
